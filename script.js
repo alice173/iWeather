@@ -69,6 +69,21 @@ suggestionsContainer.style.zIndex = '1000';
 suggestionsContainer.style.display = 'none';
 document.body.appendChild(suggestionsContainer);
 
+const fetchSuggestions = async (query) => {
+  try {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`);
+    const data = await response.json();
+    if (data.list) {
+      return data.list.map(city => city.name);
+    } else {
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching suggestions:", error);
+    return [];
+  }
+};
+
 searchInput.addEventListener('input', async () => {
   const query = searchInput.value;
 
@@ -80,12 +95,6 @@ searchInput.addEventListener('input', async () => {
   const suggestions = await fetchSuggestions(query);
   displaySuggestions(suggestions);
 });
-
-const fetchSuggestions = async (query) => {
-  const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`);
-  const data = await response.json();
-  return data.list.map(city => city.name);
-};
 
 const displaySuggestions = (suggestions) => {
   suggestionsContainer.innerHTML = '';
