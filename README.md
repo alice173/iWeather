@@ -35,16 +35,16 @@
 <a id="user-stories"></a>
 ## User Stories
 
-- Search for a Location As a user, I want to be able to search for a specific location so that I can see the weather forecast for that area.
-- Find Current Location As a user, I want to click a button to find my current location so that I can get weather updates for where I am without manually entering my location.
-- View Map of the Location As a user, I want to see a map of the selected location so that I can visually understand where the weather forecast is being applied.
-- 5-Day Weather Forecast As a user, I want to see a 5-day weather forecast including dates, temperature, wind direction, humidity, and precipitation so that I can plan my activities accordingly.
-- Save Favourite Locations As a user, I want to save my favourite locations so that I can quickly access the weather forecast for those places without having to search for them again.
-- Weather Details Display As a user, I want detailed weather information including temperature, wind direction, humidity, and precipitation to be clearly displayed for the selected location so that I have all the necessary information at a glance.
-  - We have provided an interactive map from Google's map API that will change to the relevant city when a search is executed by the user, or the user's geolocation is used.
+- Search for a Location: As a user, I want to be able to search for a specific location so that I can see the weather forecast for that area.
+- Find Current Location: As a user, I want to click a button to find my current location so that I can get weather updates for where I am without manually entering my location or clicking on my geolocation button.
+- View Map of the Location: As a user, I want to see a map of the selected location so that I can visually understand where the weather forecast is being applied.
+-Today's Weather Forecast: As a user, I want to see today's weather forecast including the date, temperature, wind direction, humidity, and precipitation so that I can plan my activities accordingly.
+- 5-Day Weather Forecast: As a user, I want to see a 5-day weather forecast including dates, temperature, wind direction, humidity, and precipitation so that I can plan my activities accordingly.
+- Save Favourite Locations: As a user, I want to save my favourite locations so that I can quickly access the weather forecast for those places without having to search for them again.
+- Weather Details Display: As a user, I want detailed weather information including temperature, wind direction, humidity, and precipitation to be clearly displayed for the selected location so that I have all the necessary information at a glance.
 
 
-As can be seen from the project board, the sprint was composed of 6 separate items. Having used the MoSCoW approach to prioritisation, 3 were classified as "Must-Have" making up 50% of the tasks as recommended. The rest of the first sprint was made up of "Could-Have".
+As can be seen from the project board, the sprint was composed of 7 separate items. Having used the MoSCoW approach to prioritisation, 4 were classified as "Must-Have" making up 57% of the tasks as recommended. The rest of the first sprint was made up of "Could-Have".
 
 <img src= IMAGE OF BOARD>
 
