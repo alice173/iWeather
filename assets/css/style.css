@@ -1,0 +1,53 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 2fr 1fr;
+  width: 100%;
+  height: 100%;
+}
+
+.header {
+  grid-column: 2 / span 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+}
+
+.header img {
+  margin-right: 10px; /* Adjust the spacing between the logo and the text */
+  width: 50px; /* Adjust the width as needed */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.header h1 {
+  margin: 0;
+}
+
+.header p {
+  margin: 0;
+  margin-top: 10px; /* Adjust the spacing between the header and the paragraph */
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .header {
+    grid-column: 1 / span 1;
+  }
+}
