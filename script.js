@@ -38,7 +38,7 @@ function processForecastData(data) {
   ];
 
   Object.keys(dailyData)
-    .slice(1, 6)
+    .slice(1, 8)
     .forEach((date) => {
       const dayData = dailyData[date];
       const tempSum = dayData.reduce((sum, entry) => sum + entry.main.temp, 0);
