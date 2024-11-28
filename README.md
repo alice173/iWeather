@@ -23,12 +23,13 @@
 <a id="ux-design"></a>
 ## UX Design
 
-### Home Page Wireframe Design
-(insert links to our wireframes)
-<img src=IMAGEs OF WIREFRAMES>
-<img>
-<img>
-<img>
+## Wireframe Design
+
+### Landing Page <img src="assets/images/WireframeLanding.png" alt="Wireframe Landing Page" width="200"> 
+### Login Page <img src="assets/images/WireframeLogin.png" alt="Wireframe Login Page" width="200"> 
+### Today Forecast <img src="assets/images/WireframeDay.png" alt="Wireframe Today's Forecast" width="200">
+### 7 day Forecast <img src="assets/images/Wireframe7day.png" alt="Wireframe 7 Day Forecast" width="200"> 
+### Mobile Page <img src="assets/images/WireframeMobile.png" alt="Wireframe Mobile Page" width="200"> 
 
 
 
