@@ -122,3 +122,5 @@ searchInput.addEventListener("keypress", (event) => {
     searchButton.click();
   }
 });
+
+
