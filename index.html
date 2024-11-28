@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
-      rel="stylesheet"
-    />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" />
+
+  <title>iWeather</title>
+
+<link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
   
-    <title>iWeather</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
 
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <div class="grid-container">
-      <header class="header">
-        <div class="header-top">
-          <img id="logo" src="assets/css/images/iWeather logo.png" alt="iWeather Logo" />
-          <h1>iWeather</h1>
-        </div>
-        <p>
-          Welcome to iWeather, the personalised weather app bringing you the most
-          accurate results from around the world
-        </p>
-      </header>
-      <!-- previous search box - ul should be hidden initially -->
-      <div>
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <ul class="hidden" aria-label="Previous searches"></ul>
+<body>
+  <div class="grid-container">
+    <header class="header">
+      <div class="header-top">
+        <img id="logo" src="assets/images/iWeather logo.png" alt="iWeather Logo" />
+        <h1>iWeather</h1>
       </div>
-      <main>
-        <input
-          type="text"
-          placeholder="Search for a city"
-          aria-label="Search for a city"
-        />
-        <div>
-          <button aria-label="Find by my location">
-            <i class="fa fa-location-arrow"></i>
-          </button>
-          <p>Or find by my location</p>
-        </div>
-        <div>
-          <p>Results for</p>
-          <button aria-label="Save in favourite locations">
-            <i class="fa-solid fa-star"></i>
-          </button>
-          <p>Save in favourite locations</p>
-        </div>
-
-        <ul aria-label="Weather forecast">
-          <!-- list of weather cards to be populated using JavaScript -->
-          <li>
-            <div>
-              <p>day</p>
-              <img src="" alt="Weather icon" />
-            </div>
-            <div>
-              <p>weather</p>
-              <p>temperature</p>
-            </div>
-          </li>
-        </ul>
-        <!-- map to be populated using JavaScript -->
-        <div class="map" aria-label="Location map"></div>
-      </main>
+      <p>
+        Welcome to iWeather, the personalised weather app bringing you the most
+        accurate results from around the world
+      </p>
+    </header>
+    <!-- previous search box - ul should be hidden initially -->
+    <div>
+      <i class="fa fa-search" aria-hidden="true"></i>
+      <ul class="hidden" aria-label="Previous searches"></ul>
     </div>
-    <script src="script.js"></script>
-  </body>
+    <main>
+      <input type="text" placeholder="Search for a city" aria-label="Search for a city" />
+      <div>
+        <button aria-label="Find by my location">
+          <i class="fa fa-location-arrow"></i>
+        </button>
+        <p>Or find by my location</p>
+      </div>
+      <div>
+        <p>Results for</p>
+        <button aria-label="Save in favourite locations">
+          <i class="fa-solid fa-star"></i>
+        </button>
+        <p>Save in favourite locations</p>
+      </div>
+
+      <ul aria-label="Weather forecast">
+        <!-- list of weather cards to be populated using JavaScript -->
+        <li>
+          <div>
+            <p>day</p>
+            <img src="" alt="Weather icon" />
+          </div>
+          <div>
+            <p>weather</p>
+            <p>temperature</p>
+          </div>
+        </li>
+      </ul>
+      <!-- map to be populated using JavaScript -->
+      <div class="map" aria-label="Location map"></div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+
 </html>
