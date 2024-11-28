@@ -1,53 +1,30 @@
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
-  width: 100%;
-  height: 100%;
-}
-
-.header {
-  grid-column: 2 / span 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.header-top {
+.header .container {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .header img {
-  margin-right: 10px; /* Adjust the spacing between the logo and the text */
   width: 50px; /* Adjust the width as needed */
   height: auto; /* Maintain aspect ratio */
 }
 
 .header h1 {
   margin: 0;
+  flex-grow: 1; /* Allow the header text to take up remaining space */
+  text-align: center; /* Center the header text */
 }
 
-.header p {
-  margin: 0;
-  margin-top: 10px; /* Adjust the spacing between the header and the paragraph */
+.header .navbar-nav {
+  margin-left: auto; /* Push the dropdown to the right */
 }
 
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
+.navbar-toggler {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
 
-  .header {
-    grid-column: 1 / span 1;
-  }
+.navbar-toggler i {
+  font-size: 24px; /* Adjust the size of the star icon */
 }
