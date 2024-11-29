@@ -87,21 +87,33 @@
         </div>
       </div>
     </div>
-    <ul aria-label="Weather forecast">
-      <!-- list of weather cards to be populated using JavaScript -->
-      <li>
-        <div>
-          <p>day</p>
-          <img src="" alt="Weather icon" />
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <!-- Left column content (if any) -->
         </div>
-        <div>
-          <p>weather</p>
-          <p>temperature</p>
+        <div class="col-8 text-center">
+          <ul aria-label="Weather forecast">
+            <!-- list of weather cards to be populated using JavaScript -->
+            <li>
+              <div>
+                <p>day</p>
+                <img src="" alt="Weather icon" />
+              </div>
+              <div>
+                <p>weather</p>
+                <p>temperature</p>
+              </div>
+            </li>
+          </ul>
+          <!-- map to be populated using JavaScript -->
+          <div class="map" aria-label="Location map"></div>
         </div>
-      </li>
-    </ul>
-    <!-- map to be populated using JavaScript -->
-    <div class="map" aria-label="Location map"></div>
+        <div class="col-2">
+          <!-- Right column content (if any) -->
+        </div>
+      </div>
+    </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
