@@ -12,7 +12,7 @@ const displayWeatherData = (data) => {
 
   weatherContainer.innerHTML = `
     <h2>Weather in ${data.name}</h2>
-        <p>Forecast: ${data.weather[0].description}</p>
+    <p>Forecast: ${data.weather[0].description}</p>
     <p>Temperature Highs: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
     <p>Temperature Lows: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
     <p>Humidity: ${data.main.humidity}%</p>
