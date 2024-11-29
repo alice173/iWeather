@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>iWeather</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>iWeather</title>
+  </head>
 
-<body>
-  <header>
-    <img src="path/to/logo.png" alt="iWeather Logo" />
-    <p>
-      Welcome to iWeather, the personalised weather app bringing you the most
-      accurate results from around the world
-    </p>
-  </header>
+  <body>
+    <header>
+      <img src="path/to/logo.png" alt="iWeather Logo" />
+      <p>
+        Welcome to iWeather, the personalised weather app bringing you the most
+        accurate results from around the world
+      </p>
+    </header>
 
-  <main>
-    <div>
-      <p>Results for</p>
-      <button aria-label="Save in favourite locations">
-        <i class="fa-solid fa-star"></i>
-      </button>
-      <p>Save in favourite locations</p>
-    </div>
+    <main>
+      <div>
+        <p>Results for</p>
+        <button aria-label="Save in favourite locations">
+          <i class="fa-solid fa-star"></i>
+        </button>
+        <p>Save in favourite locations</p>
+      </div>
 
-      <ul aria-label="Weather forecast">
-        <!-- list of weather cards to be populated using JavaScript -->
+      <ul aria-label="Weather forecast" id="forecast-list">
         <li>
           <div>
             <p>day</p>
@@ -45,4 +47,3 @@
     <script src="script.js"></script>
   </body>
 </html>
-
