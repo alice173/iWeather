@@ -19,23 +19,26 @@
 
 <body>
   <header class="header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary w-100">
       <div class="container">
         <div class="col-2">
           <img id="logo" src="assets/images/iWeather logo.png" alt="iWeather Logo" />
         </div>
         <div class="col-8 text-center">
-          <a class="navbar-brand" href="#">
-            <h1>iWeather</h1>
-          </a>
+          <a class="navbar-brand" href="#"><h1>iWeather</h1></a>
         </div>
         <div class="col-2 text-end">
-            <div class="d-flex justify-content-end">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="fa-solid fa-star"></i>
-              </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <i class="fa-solid fa-star"></i>
+                </a>
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">item 1</a></li>
                   <li><a class="dropdown-item" href="#">item 2</a></li>
@@ -54,74 +57,53 @@
   <main>
     <div class="col-12 text-center lead">
       <p>Welcome to iWeather, the personalised weather app bringing you the most
-      accurate results from around the world</p>
+        accurate results from around the world</p>
     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-2">
+          <!-- Left column content (if any) -->
+        </div>
+        <!--previous search box - ul should be hidden initially -->
+        <div class="col-8 text-center">
+          <ul class="hidden" aria-label="Previous searches"></ul>
+          <input type="text" placeholder="Search for a city" aria-label="Search for a city" class="form-control my-3" />
+          <div class="d-flex justify-content-center align-items-center my-3">
+            <button aria-label="Find by my location" class="btn btn-primary me-2">
+              <i class="fa fa-location-arrow"></i>
+            </button>
+            <p class="mb-0">Or find by my location</p>
+          </div>
+          <div class="d-flex justify-content-center align-items-center my-3">
+            <p class="mb-0 me-2">Results for</p>
+            <button aria-label="Save in favourite locations" class="btn btn-warning">
+              <i class="fa-solid fa-star"></i>
+            </button>
+            <p class="mb-0 ms-2">Save in favourite locations</p>
+          </div>
+        </div>
+        <div class="col-2">
+          <!-- Right column content (if any) -->
+        </div>
+      </div>
+    </div>
+    <ul aria-label="Weather forecast">
+      <!-- list of weather cards to be populated using JavaScript -->
+      <li>
+        <div>
+          <p>day</p>
+          <img src="" alt="Weather icon" />
+        </div>
+        <div>
+          <p>weather</p>
+          <p>temperature</p>
+        </div>
+      </li>
+    </ul>
+    <!-- map to be populated using JavaScript -->
+    <div class="map" aria-label="Location map"></div>
   </main>
 
-  <!-- <div class="grid-container">
-    <header class="header">
-      <div class="header-top">
-        <img id="logo" src="assets/images/iWeather logo.png" alt="iWeather Logo" />
-        <h1>iWeather</h1>
-        <button class="favorite-button" aria-label="Save in favourite locations">
-          <i class="fa-solid fa-star"></i>
-        </button>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="fa-solid fa-star"></i>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-      </div>
-    
-      <p>
-        Welcome to iWeather, the personalised weather app bringing you the most
-        accurate results from around the world
-      </p>
-    </header>
-    <!previous search box - ul should be hidden initially -->
-  <!--  <div>
-      <i class="fa fa-search" aria-hidden="true"></i>
-      <ul class="hidden" aria-label="Previous searches"></ul>
-    </div>
-    <main>
-      <input type="text" placeholder="Search for a city" aria-label="Search for a city" />
-      <div>
-        <button aria-label="Find by my location">
-          <i class="fa fa-location-arrow"></i>
-        </button>
-        <p>Or find by my location</p>
-      </div>
-      <div>
-        <p>Results for</p>
-        <button aria-label="Save in favourite locations">
-          <i class="fa-solid fa-star"></i>
-        </button>
-        <p>Save in favourite locations</p>
-      </div>
-
-      <ul aria-label="Weather forecast">
-         list of weather cards to be populated using JavaScript 
-        <li>
-          <div>
-            <p>day</p>
-            <img src="" alt="Weather icon" />
-          </div>
-          <div>
-            <p>weather</p>
-            <p>temperature</p>
-          </div>
-        </li>
-      </ul>
-      map to be populated using JavaScript 
-      <div class="map" aria-label="Location map"></div>
-    </main>
-  </div>-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
