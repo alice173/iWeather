@@ -43,7 +43,6 @@ const fetchWeatherData = (url) => {
 const searchInput = document.createElement("input");
 searchInput.type = "text";
 searchInput.placeholder = "Enter location";
-searchInput.id = "search-input";
 document.body.appendChild(searchInput);
 
 const searchButton = document.createElement("button");
@@ -52,7 +51,6 @@ document.body.appendChild(searchButton);
 
 const currentLocationButton = document.createElement("button");
 currentLocationButton.textContent = "Use Current Location";
-currentLocationButton.id = "current-location-button";
 document.body.appendChild(currentLocationButton);
 
 searchButton.addEventListener("click", () => {
