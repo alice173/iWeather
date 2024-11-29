@@ -6,13 +6,15 @@ document.body.appendChild(weatherContainer);
 
 const displayWeatherData = (data) => {
   const precipitation = data.rain ? data.rain["1h"] || data.rain["3h"] : 0;
-  const nightTemp = data.main.temp_night ? (data.main.temp_night - 273.15).toFixed(0) : "N/A";
+  const nightTemp = data.main.temp_night
+    ? (data.main.temp_night - 273.15).toFixed(0)
+    : "N/A";
 
   weatherContainer.innerHTML = `
     <h2>Weather in ${data.name}</h2>
-    <p>Temperature: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
-    <p>Night Temperature: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
-    <p>Forecast: ${data.weather[0].description}</p>
+        <p>Forecast: ${data.weather[0].description}</p>
+    <p>Temperature Highs: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
+    <p>Temperature Lows: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
     <p>Precipitation: ${precipitation} mm</p>
@@ -30,7 +32,6 @@ const fetchWeatherData = (url) => {
       console.error("Error fetching the weather data:", error);
     });
 };
-
 
 // Search input and buttons
 
@@ -59,32 +60,37 @@ searchButton.addEventListener("click", () => {
 
 currentLocationButton.addEventListener("click", () => {
   if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      const { latitude, longitude } = position.coords;
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
-      fetchWeatherData(url);
-    }, (error) => {
-      console.error("Error getting the current location:", error);
-    });
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+        fetchWeatherData(url);
+      },
+      (error) => {
+        console.error("Error getting the current location:", error);
+      }
+    );
   } else {
     alert("Geolocation is not supported by this browser.");
   }
 });
 
 const suggestionsContainer = document.createElement("div");
-suggestionsContainer.style.position = 'absolute';
-suggestionsContainer.style.border = '1px solid #ccc';
-suggestionsContainer.style.backgroundColor = '#fff';
-suggestionsContainer.style.zIndex = '1000';
-suggestionsContainer.style.display = 'none';
+suggestionsContainer.style.position = "absolute";
+suggestionsContainer.style.border = "1px solid #ccc";
+suggestionsContainer.style.backgroundColor = "#fff";
+suggestionsContainer.style.zIndex = "1000";
+suggestionsContainer.style.display = "none";
 document.body.appendChild(suggestionsContainer);
 
 const fetchSuggestions = async (query) => {
   try {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`);
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/find?q=${query}&type=like&sort=population&cnt=5&appid=${apiKey}`
+    );
     const data = await response.json();
     if (data.list) {
-      return data.list.map(city => city.name);
+      return data.list.map((city) => city.name);
     } else {
       return [];
     }
@@ -94,11 +100,11 @@ const fetchSuggestions = async (query) => {
   }
 };
 
-searchInput.addEventListener('input', async () => {
+searchInput.addEventListener("input", async () => {
   const query = searchInput.value;
 
   if (query.length < 3) {
-    suggestionsContainer.style.display = 'none';
+    suggestionsContainer.style.display = "none";
     return;
   }
 
@@ -107,32 +113,34 @@ searchInput.addEventListener('input', async () => {
 });
 
 const displaySuggestions = (suggestions) => {
-  suggestionsContainer.innerHTML = '';
+  suggestionsContainer.innerHTML = "";
   if (suggestions.length > 0) {
-    suggestionsContainer.style.display = 'block';
-    suggestionsContainer.style.top = `${searchInput.offsetTop + searchInput.offsetHeight}px`;
+    suggestionsContainer.style.display = "block";
+    suggestionsContainer.style.top = `${
+      searchInput.offsetTop + searchInput.offsetHeight
+    }px`;
     suggestionsContainer.style.left = `${searchInput.offsetLeft}px`;
     suggestionsContainer.style.width = `${searchInput.offsetWidth}px`;
 
-    suggestions.forEach(suggestion => {
-      const suggestionItem = document.createElement('div');
+    suggestions.forEach((suggestion) => {
+      const suggestionItem = document.createElement("div");
       suggestionItem.textContent = suggestion;
-      suggestionItem.style.padding = '8px';
-      suggestionItem.style.cursor = 'pointer';
-      suggestionItem.addEventListener('click', () => {
+      suggestionItem.style.padding = "8px";
+      suggestionItem.style.cursor = "pointer";
+      suggestionItem.addEventListener("click", () => {
         searchInput.value = suggestion;
-        suggestionsContainer.style.display = 'none';
+        suggestionsContainer.style.display = "none";
       });
       suggestionsContainer.appendChild(suggestionItem);
     });
   } else {
-    suggestionsContainer.style.display = 'none';
+    suggestionsContainer.style.display = "none";
   }
 };
 
-document.addEventListener('click', (e) => {
+document.addEventListener("click", (e) => {
   if (!suggestionsContainer.contains(e.target) && e.target !== searchInput) {
-    suggestionsContainer.style.display = 'none';
+    suggestionsContainer.style.display = "none";
   }
 });
 
@@ -141,5 +149,3 @@ searchInput.addEventListener("keypress", (event) => {
     searchButton.click();
   }
 });
-
-
