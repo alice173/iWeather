@@ -10,8 +10,13 @@ const displayWeatherData = (data) => {
     ? (data.main.temp_night - 273.15).toFixed(0)
     : "N/A";
 
+  const date = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = date.toLocaleDateString(undefined, options);
+
   weatherContainer.innerHTML = `
     <h2>Weather in ${data.name}</h2>
+    <p>${formattedDate}</p>
     <p>Forecast: ${data.weather[0].description}</p>
     <p>Temperature Highs: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
     <p>Temperature Lows: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
