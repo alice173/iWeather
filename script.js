@@ -5,12 +5,62 @@ document.body.appendChild(weatherContainer);
 // weather components
 
 const displayWeatherData = (data) => {
+  const precipitation = data.rain
+    ? data.rain["1h"]
+    : data.snow
+    ? data.snow["1h"]
+    : 0;
+  const date = new Date();
+  const dayNames = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayName = dayNames[date.getDay()];
+  const day = date.getDate();
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  const monthName = monthNames[date.getMonth()];
+  const year = date.getFullYear();
+  const suffix = (day) => {
+    if (day > 3 && day < 21) return "th";
+    switch (day % 10) {
+      case 1:
+        return "st";
+      case 2:
+        return "nd";
+      case 3:
+        return "rd";
+      default:
+        return "th";
+    }
+  };
+  const formattedDate = `${day}${suffix(day)} of ${monthName} ${year}`;
+
   weatherContainer.innerHTML = `
-    <h2>Weather in ${data.name}</h2>
-    <p>Temperature: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
+    <h2>Weather in ${data.name}, on ${dayName} the ${formattedDate}</h2>
     <p>Weather: ${data.weather[0].description}</p>
+    <p>High of Day: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
+    <p>Low of Day: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
+    <p>Precipitation: ${precipitation} mm</p>
   `;
 };
 
