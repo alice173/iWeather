@@ -187,10 +187,10 @@ const displayForecast = (forecast) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
       <div class="forecast-day">
-        <p>${day.day}</p>
+        <p class="day">${day.day}</p>
         <p>${day.date}</p>
       </div>
-      <div class="day-forecast">
+      <div class="day-forecast--wrapper">
         <div class="day-forecast--day">
             <img class="day-forecast--img" src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.weather} icon" />
             <p>${day.weather}</p>

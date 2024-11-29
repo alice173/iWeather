@@ -110,11 +110,19 @@ ul[aria-label="Weather forecast"] img {
 }
 .forecast-day {
   width: 100px;
+  margin-top: 1rem;
+  .day {
+    font-weight: 700;
+  }
 }
-.day-forecast {
+.day-forecast--wrapper {
   display: grid;
   gap: 2rem;
   grid-template-columns: 150px repeat(4, 1fr);
+  padding-inline: 1rem;
+  border: 1px solid black;
+  background-color: rgba(21, 59, 97, 0.1);
+  border-radius: 5px;
 }
 
 .day-forecast--img {
@@ -128,6 +136,7 @@ ul[aria-label="Weather forecast"] img {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding-top: 1rem;
 
   flex: 1;
 
@@ -161,4 +170,9 @@ summary {
 
 .hidden {
   display: none;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
 }
