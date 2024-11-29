@@ -63,7 +63,7 @@ const displayWeatherData = (data) => {
     <p>Precipitation: ${precipitation} mm</p>
   `;
 };
-
+ 
 const fetchWeatherData = (url) => {
   fetch(url)
     .then((response) => response.json())
