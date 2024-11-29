@@ -171,6 +171,8 @@ const processForecastData = (data) => {
 // Function to display forecast data
 const displayForecast = (forecast) => {
   const list = document.getElementById("forecast-list");
+  const details = document.getElementById("7day-dropdown");
+  details.classList.remove("hidden");
   if (!list) {
     console.error("Element with id 'forecast-list' not found");
     return;

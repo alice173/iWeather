@@ -100,6 +100,7 @@ ul[aria-label="Weather forecast"] img {
 
 /** 7 day forecast **/
 #forecast-list {
+  margin-top: 2rem;
   li {
     display: flex;
     list-style-type: none;
@@ -143,4 +144,21 @@ ul[aria-label="Weather forecast"] img {
   & * {
     flex: 1;
   }
+}
+
+details {
+  margin-inline: auto;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+summary {
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
 }
