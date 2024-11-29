@@ -2,13 +2,20 @@ const apiKey = "7ed95d45757d80e19ad8d9d6c951a2aa";
 const weatherContainer = document.createElement("div");
 document.body.appendChild(weatherContainer);
 
+// weather components
+
 const displayWeatherData = (data) => {
+  const precipitation = data.rain ? data.rain["1h"] || data.rain["3h"] : 0;
+  const nightTemp = data.main.temp_night ? (data.main.temp_night - 273.15).toFixed(0) : "N/A";
+
   weatherContainer.innerHTML = `
     <h2>Weather in ${data.name}</h2>
     <p>Temperature: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
-    <p>Weather: ${data.weather[0].description}</p>
+    <p>Night Temperature: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
+    <p>Forecast: ${data.weather[0].description}</p>
     <p>Humidity: ${data.main.humidity}%</p>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
+    <p>Precipitation: ${precipitation} mm</p>
   `;
 };
 
@@ -23,7 +30,10 @@ const fetchWeatherData = (url) => {
       console.error("Error fetching the weather data:", error);
     });
 };
+
+
 // Search input and buttons
+
 const searchInput = document.createElement("input");
 searchInput.type = "text";
 searchInput.placeholder = "Enter location";
