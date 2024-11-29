@@ -1,9 +1,10 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #background-video {
@@ -28,7 +29,9 @@ body, html {
   z-index: 0;
 }
 
-.container, .header, .main {
+.container,
+.header,
+.main {
   position: relative;
   z-index: 1;
 }
