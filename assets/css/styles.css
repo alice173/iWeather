@@ -97,3 +97,82 @@ ul[aria-label="Weather forecast"] img {
   height: 400px; /* Adjust the height as needed */
   background-color: #e0e0e0; /* Placeholder background color */
 }
+
+/** 7 day forecast **/
+#forecast-list {
+  margin-top: 2rem;
+  li {
+    display: flex;
+    list-style-type: none;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+.forecast-day {
+  width: 100px;
+  margin-top: 1rem;
+  .day {
+    font-weight: 700;
+  }
+}
+.day-forecast--wrapper {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 150px repeat(4, 1fr);
+  padding-inline: 1rem;
+  border: 1px solid black;
+  background-color: rgba(21, 59, 97, 0.1);
+  border-radius: 5px;
+}
+
+.day-forecast--img {
+  width: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+.day-forecast--day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1rem;
+
+  flex: 1;
+
+  p {
+    text-transform: capitalize;
+  }
+
+  .fa-solid,
+  .fa-regular,
+  .fas {
+    margin-top: 5px;
+  }
+
+  & * {
+    flex: 1;
+  }
+}
+
+details {
+  margin-inline: auto;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+summary {
+  text-transform: uppercase;
+}
+
+.hidden {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+}

@@ -171,6 +171,8 @@ const processForecastData = (data) => {
 // Function to display forecast data
 const displayForecast = (forecast) => {
   const list = document.getElementById("forecast-list");
+  const details = document.getElementById("7day-dropdown");
+  details.classList.remove("hidden");
   if (!list) {
     console.error("Element with id 'forecast-list' not found");
     return;
@@ -185,27 +187,27 @@ const displayForecast = (forecast) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
       <div class="forecast-day">
-        <p>${day.day}</p>
+        <p class="day">${day.day}</p>
         <p>${day.date}</p>
       </div>
-      <div>
-        <div class="7day_forecast">
-            <img src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.weather} icon" />
+      <div class="day-forecast--wrapper">
+        <div class="day-forecast--day">
+            <img class="day-forecast--img" src="https://openweathermap.org/img/wn/${day.icon}@2x.png" alt="${day.weather} icon" />
             <p>${day.weather}</p>
         </div>
-        <div class="7day_forecast">
+        <div class="day-forecast--day">
             <i class="fas fa-thermometer-half" aria-label="average temperature"></i>
             <p>${day.avgTemp}°C</p>
         </div>
-        <div class="7day_forecast">
+        <div class="day-forecast--day">
             <i class="fa-solid fa-wind" aria-label="wind speed"></i>
             <p>${day.windSpeed}</p>
         </div>
-        <div class="7day_forecast">
+        <div class="day-forecast--day">
             <i class="fa-solid fa-droplet" aria-label="precipitation"></i>
             <p>${day.precipitation}</p>
         </div>
-        <div class="7day_forecast">
+        <div class="day-forecast--day">
             <i class="fa-regular fa-moon" aria-label="minimum temperature"></i>
             <p>${day.minTemp}°C</p>
         </div>
