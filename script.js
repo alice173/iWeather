@@ -98,7 +98,7 @@ function displayForecast(forecast) {
   forecast.forEach((day) => {
     const listItem = document.createElement("li");
     listItem.innerHTML = `
-      <div>
+      <div class="forecast-day">
         <p>${day.day}</p>
         <p>${day.date}</p>
       </div>
