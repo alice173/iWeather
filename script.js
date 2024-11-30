@@ -68,15 +68,23 @@ const displayWeatherData = (data) => {
 
   const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
+  weatherContainer.style.display = "flex";
+
   weatherContainer.innerHTML = `
-    <h2>Weather in ${data.name}, on ${dayName} the ${formattedDate}</h2>
+    <h3>Weather in ${data.name}, on ${dayName} the ${formattedDate}</h3>
+    <div class="main-forecast">
     <img src="${weatherIcon}" alt="${data.weather[0].description} icon" />
     <p>Weather: ${data.weather[0].description}</p>
+     <i class="fas fa-thermometer-half" aria-label="average temperature"></i>
     <p>High of Day: ${(data.main.temp - 273.15).toFixed(0)}°C</p>
+     <i class="fas fa-thermometer-half" aria-label="average temperature"></i>
     <p>Low of Day: ${(data.main.temp_min - 273.15).toFixed(0)}°C</p>
+     <i class="fa-solid fa-droplet" aria-label="precipitation"></i>
     <p>Humidity: ${data.main.humidity}%</p>
+    <i class="fa-solid fa-wind" aria-label="wind speed"></i>
     <p>Wind Speed: ${data.wind.speed} m/s</p>
-    <p>Precipitation: ${precipitation} mm</p>
+     <i class="fa-solid fa-droplet" aria-label="precipitation"></i>
+    <p>Precipitation: ${precipitation} mm</p></div>
   `;
 };
 
@@ -221,18 +229,24 @@ const displayForecast = (forecast) => {
 
 // Function to save favorite location
 const saveFavoriteLocation = (location) => {
-  const favoriteLocations = JSON.parse(localStorage.getItem("favoriteLocations")) || [];
+  const favoriteLocations =
+    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
   if (!favoriteLocations.includes(location)) {
     favoriteLocations.push(location);
-    localStorage.setItem("favoriteLocations", JSON.stringify(favoriteLocations));
+    localStorage.setItem(
+      "favoriteLocations",
+      JSON.stringify(favoriteLocations)
+    );
     updateFavoriteLocationsDropdown();
   }
 };
 
 // Function to update favorite locations dropdown
 const updateFavoriteLocationsDropdown = () => {
-  const favoriteLocations = JSON.parse(localStorage.getItem("favoriteLocations")) || [];
-  const favoriteLocationsDropdown = document.getElementById("favorite-locations");
+  const favoriteLocations =
+    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
+  const favoriteLocationsDropdown =
+    document.getElementById("favorite-locations");
   favoriteLocationsDropdown.innerHTML = ""; // Clear previous items
 
   favoriteLocations.forEach((location) => {
@@ -305,7 +319,6 @@ currentLocationButton.addEventListener("click", () => {
     alert("Geolocation is not supported by this browser.");
   }
 });
-
 
 // Event listener for save favorite button
 saveFavoriteButton.addEventListener("click", () => {
