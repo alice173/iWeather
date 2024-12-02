@@ -335,6 +335,8 @@ const displayForecast = (forecast) => {
   });
 };
 
+
+
 // Get references to the search input and buttons
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
