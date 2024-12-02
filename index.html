@@ -19,14 +19,14 @@
 
   <body>
     <video autoplay muted loop id="background-video">
-      <source src="assets/videos/Insterstella 4K.mp4" type="video/mp4" />
+      <source src="assets/videos/Insterstella4K.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
     <header class="header">
       <nav class="navbar px-2 bg-body-tertiary">
         <img
           id="logo"
-          src="assets/images/iWeather logo.png"
+          src="assets/images/iWeather-logo.png"
           alt="iWeather Logo"
         />
 
@@ -112,7 +112,6 @@
         <ul id="forecast-list"></ul>
       </details>
       <div id="map" class="map"></div>
-
     </main>
 
     <!-- Footer -->
@@ -157,8 +156,11 @@
       </div>
     </footer>
     <!-- Google Maps API script -->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB99hHN3rXMqtenpGAszBXOwFPdaDznX8k&callback=initMap"
-  async defer></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB99hHN3rXMqtenpGAszBXOwFPdaDznX8k&callback=initMap"
+      async
+      defer
+    ></script>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
