@@ -87,7 +87,7 @@ As can be seen from the project board, the sprint was composed of 8 separate ite
 - **Interactive Map**
   When a city is input by the user or the user location is used to execute a search along with the relevant weather information, an interactive map of that location will be displayed below the main section allowing the user to have a browse around the local area, zoom in and out etc. This is generated with Google's map API.
 
-<img src=IMAGE OF MAP>
+<img src="assets/images/map.png">
 
 - **Footer**
   At the bottom of the page we have a fairly standard footer section that includes links to each our the collaborators Github pages for the user to checkout.
@@ -98,15 +98,11 @@ As can be seen from the project board, the sprint was composed of 8 separate ite
 
 ## Testing
 
-### Manual Testing
-
-<img src=IMAGE OF SPREADSHEET SHOWING WHATS TESTED, STEPS, AND RESULT (PASS/FAIL)>
-
 ### Lighthouse
 
 The site was tested using Lighthouse with the following results:
 
-<img src=IMAGE OF LIGHTHOUSE RESULT>
+<img src="assets/images/lighthouse.png">
 
 ### Responsive Testing
 
@@ -118,32 +114,50 @@ Alongside the built in Bootstrap responsive CSS, media queries were used through
 
 The site was tested on the following browsers:
 
-- Opera
+- Safari
+  <img src="assets/images/safari.png">
+  
 - Firefox
+<img src="assets/images/firefox.png">
+  
 - Edge
-- Chrome
+<img src="assets/images/edge.png">
 
-<img src=IMAGE OF DIFFERENT BROWSERS SHOWING THE WEBSITE>
+- Chrome
+<img src="assets/images/chrome.png">
+
 
 ### Validator Testing
 
 - HTML
 
-  - No errors were returned when passing through the official [_W3C validator_](https://validator.w3.org/ADD LINK)
+  - No errors were returned when passing through the official [_W3C validator_]
 
 <img src="assets/images/w3c.png">
 
 - CSS
-  - No errors were found with our own CSS code when passing through the official Jigsaw validator. However, there were many errors found in the Bootstrap CSS code, which is a normal result.
+  - 10 errors were found with our own CSS code when passing through the official Jigsaw validator. However, there were many errors found in the Bootstrap CSS code, which is a normal result.
 
-<img src=IMAGE OF CSS NO ERRORS>
+<img src="assets/images/w3c-css.png">
+
+- JavScript
+
+<img src="assets/images/js.png">
 
 ## Bugs
 
 All bug fixes were dealt with efficiently and cleanly.
 
-- BUG: ADD ANY BUGS FOUND
-- BUG:
+- BUGS:
+- Unable to save multiple locations.
+- Move to forecast section after weather has been searched.  User currently has to scroll down.
+
+- BUG FIXED:
+- Find my location auto-saved geo-location only - fixed.
+- Search inout doesn’t clear after searching - fixed. 
+- No alert once favourite saved - fixed.
+- Can’t search by location if input has been typed into - fixed.
+
 
 <a id="deployment"></a>
 
