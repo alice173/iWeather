@@ -109,7 +109,7 @@ The site was tested using Lighthouse with the following results:
 
 Alongside the built in Bootstrap responsive CSS, media queries were used throughout our own CSS to provide a consistent user experience. Chrome dev tools were used frequently to test the site at standard screen sizes and the site was manually viewed on laptops, tablets and phones.
 
-<img src=IMAGE OF iWEATHER ON PHONE, TABLET, LAPTOP, AND DESKTOP>
+<img src="assets/images/responsive.png">
 
 ### Browser Compatibility
 
@@ -148,7 +148,7 @@ All bug fixes were dealt with efficiently and cleanly.
 
 - The site was deployed to GitHub pages from the main branch of the repository during the developemnt stage for continuous deployment and checking.
 
-- The live link can be found [_here_](INSERT LINK TO GITHUB)
+- The live link can be found [_here_](https://alice173.github.io/iWeather/)
 
 <a id="credits"></a>
 
