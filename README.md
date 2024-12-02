@@ -128,7 +128,7 @@ The site was tested on the following browsers:
 
   - No errors were returned when passing through the official [_W3C validator_](https://validator.w3.org/ADD LINK)
 
-<img src=IMAGE OF HTML NO ERRORS>
+<img src="assets/images/w3c.png">
 
 - CSS
   - No errors were found with our own CSS code when passing through the official Jigsaw validator. However, there were many errors found in the Bootstrap CSS code, which is a normal result.
