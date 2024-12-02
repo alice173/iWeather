@@ -1,6 +1,6 @@
 # iWeather
 
-<p <!-- insert images of working MVP --> "/></p>
+<img src="assets/images/chrome.png"
 
 # Introduction
 
