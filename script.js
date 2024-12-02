@@ -393,7 +393,6 @@ currentLocationButton.addEventListener("click", () => {
 
         // Get location name and save it
         getLocationName(latitude, longitude, (locationName) => {
-          saveFavoriteLocation(locationName);
         });
       },
       (error) => {
@@ -407,12 +406,21 @@ currentLocationButton.addEventListener("click", () => {
 
 // Event listener for save favorite button
 saveFavoriteButton.addEventListener("click", () => {
-  const location = searchInput.value;
-  if (location) {
-    saveFavoriteLocation(location);
-    showNotification("Location saved to favorites!"); // Show notification
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+        getLocationName(latitude, longitude, (locationName) => {
+          saveFavoriteLocation(locationName);
+          showNotification("Location saved to favorites!"); // Show notification
+        });
+      },
+      (error) => {
+        console.error("Error getting the current location:", error);
+      }
+    );
   } else {
-    alert("Please enter a location to save");
+    alert("Geolocation is not supported by this browser.");
   }
 });
 
