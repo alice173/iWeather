@@ -4,11 +4,9 @@
 
 # Introduction
 
-### Project Description - Provide a brief, one- or two-sentence description of what your project does. This should be a high-level summary that quickly conveys the project's purpose.
+### Project Description - iWeather is a web-app that provides an instant and quick way to check weather in any location, with capabilities to save your favourite locations, geo-locate, and view the location on a map. 
 
-### Project Purpose - Explain why your project exists and what problem it aims to solve. This helps users understand the context and motivation behind your project.
-
-### How it benefits the Users, Users Demographic - Whom does the site target and how will it benefit them
+### Project Purpose - iWeather exists to simplify and streamline the process of weather information. 
 
 # Contents
 
@@ -26,15 +24,20 @@
 
 ## Wireframe Design
 
-### Landing Page <img src="assets/images/WireframeLanding.png" alt="Wireframe Landing Page" width="200">
+### Landing Page 
+<img src="assets/images/WireframeLanding.png" alt="Wireframe Landing Page" width="200">
 
-### Login Page <img src="assets/images/WireframeLogin.png" alt="Wireframe Login Page" width="200">
+### Login Page 
+<img src="assets/images/WireframeLogin.png" alt="Wireframe Login Page" width="200">
 
-### Today Forecast <img src="assets/images/WireframeDay.png" alt="Wireframe Today's Forecast" width="200">
+### Today Forecast 
+<img src="assets/images/WireframeDay.png" alt="Wireframe Today's Forecast" width="200">
 
-### 7 day Forecast <img src="assets/images/Wireframe7day.png" alt="Wireframe 7 Day Forecast" width="200">
+### 7 day Forecast 
+<img src="assets/images/Wireframe7day.png" alt="Wireframe 7 Day Forecast" width="200">
 
-### Mobile Page <img src="assets/images/WireframeMobile.png" alt="Wireframe Mobile Page" width="200">
+### Mobile Page 
+<img src="assets/images/WireframeMobile.png" alt="Wireframe Mobile Page" width="200">
 
 <a id="user-stories"></a>
 
@@ -48,9 +51,9 @@
 - Save Favourite Locations: As a user, I want to save my favourite locations so that I can quickly access the weather forecast for those places without having to search for them again.
 - Weather Details Display: As a user, I want detailed weather information including temperature, wind direction, humidity, and precipitation to be clearly displayed for the selected location so that I have all the necessary information at a glance.
 
-As can be seen from the project board, the sprint was composed of 7 separate items. Having used the MoSCoW approach to prioritisation, 4 were classified as "Must-Have" making up 57% of the tasks as recommended. The rest of the first sprint was made up of "Could-Have".
+As can be seen from the project board, the sprint was composed of 8 separate items. Having used the MoSCoW approach to prioritisation, 4 were classified as "Must-Have" making up 50% of the tasks as recommended. The rest of the first sprint was made up of "Could-Have".
 
-<img src= IMAGE OF BOARD>
+<img src="assets/images/project-board.png">
 
 <a id="features"></a>
 
@@ -59,7 +62,7 @@ As can be seen from the project board, the sprint was composed of 7 separate ite
 - **Search Bar**
   The User can instead, enter their own custom location into the Input. Once they click search, the weather API will return weather data for that location.
 
-<img src="assets/images/project-board.png">
+<img src="assets/images/search-bar.png">
 
 - **User Location Button**
   The User can click the current location button which uses the Geolocation API, the browser will then ask the User permission to access their device's location. Once that is accepted, the weather results shown will be for that location - using latitude and longitude of the User's device.
@@ -89,7 +92,7 @@ As can be seen from the project board, the sprint was composed of 7 separate ite
 - **Footer**
   At the bottom of the page we have a fairly standard footer section that includes links to each our the collaborators Github pages for the user to checkout.
 
-       <img src="assets/images/footer.png">
+  <img src="assets/images/footer.png">
 
 <a id="testing"></a>
 
