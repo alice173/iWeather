@@ -1,5 +1,38 @@
 const apiKey = "7ed95d45757d80e19ad8d9d6c951a2aa";
 
+// Function to display notifications
+const showNotification = (message) => {
+  const notification = document.createElement("div");
+  notification.className = "notification";
+  notification.innerText = message;
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.remove();
+  }, 3000); // Remove notification after 3 seconds
+};
+
+// Function to initialize the map
+let map;
+let marker;
+
+function initMap() {
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+  marker = new google.maps.Marker({
+    map: map,
+  });
+}
+
+// Function to update the map location
+function updateMap(lat, lng) {
+  const location = { lat: lat, lng: lng };
+  map.setCenter(location);
+  marker.setPosition(location);
+}
+
 // Function to fetch weather data
 const fetchWeatherData = (url) => {
   fetch(url)
@@ -7,6 +40,7 @@ const fetchWeatherData = (url) => {
     .then((data) => {
       console.log(data);
       displayWeatherData(data);
+      updateMap(data.coord.lat, data.coord.lon); // Update map location
     })
     .catch((error) => {
       console.error("Error fetching the weather data:", error);
@@ -85,7 +119,81 @@ const displayWeatherData = (data) => {
     <p>Wind Speed: ${data.wind.speed} m/s</p>
      <i class="fa-solid fa-droplet" aria-label="precipitation"></i>
     <p>Precipitation: ${precipitation} mm</p></div>
-  `;
+ `;
+};
+
+// Function to save favorite location
+const saveFavoriteLocation = (location) => {
+  const favoriteLocations =
+    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
+  if (!favoriteLocations.includes(location)) {
+    favoriteLocations.push(location);
+    localStorage.setItem(
+      "favoriteLocations",
+      JSON.stringify(favoriteLocations)
+    );
+    updateFavoriteLocationsDropdown();
+    showNotification("Location saved to favorites!"); // Show notification
+  }
+};
+
+// Function to remove favorite location
+const removeFavoriteLocation = (location) => {
+  let favoriteLocations =
+    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
+  favoriteLocations = favoriteLocations.filter((fav) => fav !== location);
+  localStorage.setItem(
+    "favoriteLocations",
+    JSON.stringify(favoriteLocations)
+  );
+  updateFavoriteLocationsDropdown();
+};
+
+// Function to update favorite locations dropdown
+const updateFavoriteLocationsDropdown = () => {
+  const favoriteLocations =
+    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
+  const favoriteLocationsDropdown =
+    document.getElementById("favorite-locations");
+  favoriteLocationsDropdown.innerHTML = ""; // Clear previous items
+
+  favoriteLocations.forEach((location) => {
+    const listItem = document.createElement("li");
+    listItem.classList.add("dropdown-item");
+    listItem.textContent = location;
+    listItem.addEventListener("click", () => {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+      fetchWeatherData(url);
+    });
+
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.classList.add("btn", "btn-danger", "btn-sm", "ms-2");
+    removeButton.addEventListener("click", (event) => {
+      event.stopPropagation(); // Prevent triggering the list item click event
+      removeFavoriteLocation(location);
+    });
+
+    listItem.appendChild(removeButton);
+    favoriteLocationsDropdown.appendChild(listItem);
+  });
+};
+
+// Function to get location name from coordinates
+const getLocationName = (lat, lng, callback) => {
+  const geocoder = new google.maps.Geocoder();
+  const latlng = { lat: parseFloat(lat), lng: parseFloat(lng) };
+  geocoder.geocode({ location: latlng }, (results, status) => {
+    if (status === "OK") {
+      if (results[0]) {
+        callback(results[0].formatted_address);
+      } else {
+        console.error("No results found");
+      }
+    } else {
+      console.error("Geocoder failed due to: " + status);
+    }
+  });
 };
 
 // Function to fetch forecast data
@@ -227,40 +335,6 @@ const displayForecast = (forecast) => {
   });
 };
 
-// Function to save favorite location
-const saveFavoriteLocation = (location) => {
-  const favoriteLocations =
-    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
-  if (!favoriteLocations.includes(location)) {
-    favoriteLocations.push(location);
-    localStorage.setItem(
-      "favoriteLocations",
-      JSON.stringify(favoriteLocations)
-    );
-    updateFavoriteLocationsDropdown();
-  }
-};
-
-// Function to update favorite locations dropdown
-const updateFavoriteLocationsDropdown = () => {
-  const favoriteLocations =
-    JSON.parse(localStorage.getItem("favoriteLocations")) || [];
-  const favoriteLocationsDropdown =
-    document.getElementById("favorite-locations");
-  favoriteLocationsDropdown.innerHTML = ""; // Clear previous items
-
-  favoriteLocations.forEach((location) => {
-    const listItem = document.createElement("li");
-    listItem.classList.add("dropdown-item");
-    listItem.textContent = location;
-    listItem.addEventListener("click", () => {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
-      fetchWeatherData(url);
-    });
-    favoriteLocationsDropdown.appendChild(listItem);
-  });
-};
-
 // Get references to the search input and buttons
 const searchInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
@@ -279,6 +353,8 @@ searchInput.addEventListener("keypress", (event) => {
 
       const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}`;
       fetchForecastData(forecastUrl);
+
+      searchInput.value = ""; // Clear search input
     } else {
       alert("Please enter a location");
     }
@@ -294,6 +370,8 @@ searchButton.addEventListener("click", () => {
 
     const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${location}&appid=${apiKey}`;
     fetchForecastData(forecastUrl);
+
+    searchInput.value = ""; // Clear search input
   } else {
     alert("Please enter a location");
   }
@@ -310,6 +388,11 @@ currentLocationButton.addEventListener("click", () => {
 
         const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
         fetchForecastData(forecastUrl);
+
+        // Get location name and save it
+        getLocationName(latitude, longitude, (locationName) => {
+          saveFavoriteLocation(locationName);
+        });
       },
       (error) => {
         console.error("Error getting the current location:", error);
@@ -325,6 +408,7 @@ saveFavoriteButton.addEventListener("click", () => {
   const location = searchInput.value;
   if (location) {
     saveFavoriteLocation(location);
+    showNotification("Location saved to favorites!"); // Show notification
   } else {
     alert("Please enter a location to save");
   }
@@ -332,3 +416,8 @@ saveFavoriteButton.addEventListener("click", () => {
 
 // Update favorite locations dropdown on page load
 updateFavoriteLocationsDropdown();
+
+// Initialize the map when the page loads
+window.onload = () => {
+  initMap();
+};
