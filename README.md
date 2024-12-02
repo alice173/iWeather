@@ -1,6 +1,6 @@
 # iWeather
 
-<img src="assets/images/chrome.png"
+<img src="assets/images/chrome.png">
 
 # Introduction
 
