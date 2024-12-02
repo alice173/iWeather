@@ -3,10 +3,16 @@ html {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
-  /* overflow: hidden; */
 }
 
+.btn-primary {
+  background-color: rgba(21, 59, 97);
+  border-color: rgba(21, 59, 97);
+  &:hover {
+    background-color: rgba(21, 59, 97, 0.8);
+    border-color: rgba(21, 59, 97, 0.8);
+  }
+}
 #background-video {
   position: fixed;
   right: 0;
@@ -209,7 +215,7 @@ details summary {
 }
 
 .intro {
-  max-width: 30ch;
+  max-width: 45ch;
   margin-block-start: 3rem;
   margin-inline: auto;
 }
@@ -259,7 +265,6 @@ details summary {
   margin-inline: auto;
 }
 
-
 /* footer */
 
 body {
@@ -274,37 +279,40 @@ main {
   overflow-y: auto;
   /* Allow main content to be scrollable */
   padding-bottom: 10px;
-  /* Adjust as necessary to ensure space for the footer */
 }
 
 footer {
-  background-color: white;
-  color: black;
+  background-color: rgba(21, 59, 97);
+  color: rgba(255, 255, 255, 0.8);
   padding: 20px 0;
   width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
   margin-top: auto;
-}
-
-.footer-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  font-size: 12px;
 }
 
 .footer-section {
   text-align: center;
-  padding: 0 20px;
+
+  img {
+    width: 24px;
+    margin-bottom: 8px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+  h4 {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
 }
 
 .footer-divider {
   width: 1px;
   height: 50px;
-  background-color: black;
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-section h4 {
@@ -314,13 +322,3 @@ footer {
 .footer-section p {
   margin: 0;
 }
-
-.footer-section a {
-  color: black;
-  text-decoration: none;
-}
-
-.footer-section a:hover {
-  text-decoration: underline;
-}
-
